@@ -1,22 +1,18 @@
-import os
 import shutil
 
-from django import forms
-from django.db import models
-from django.db.models import FileField
 from django.contrib import admin
 from django.core.cache import cache
 from django.core.files.uploadedfile import SimpleUploadedFile
-
-# Class only used for denotation.
-from django.http.request import HttpRequest
-
-from .models import FineFile
+from django.db import models
+from django.db.models import FileField
 
 from django_fine_uploader import widgets
+from .models import FineFile
 
 
-@admin.register(FineFile)
+# Class only used for denotation.
+
+
 class FineFileAdmin(admin.ModelAdmin):
 
     formfield_overrides = {
@@ -30,11 +26,10 @@ class FineFileAdmin(admin.ModelAdmin):
             '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
         )
 
-    def fineuploader_setting(self, request: HttpRequest):
+    def fineuploader_setting(self, request):
         post_info = request.POST.dict()
         if type(self.formfield_overrides.get(FileField).get('widget')) is widgets.FineUploaderWidget:
             model_fields = self.model._meta.fields
-            file_fields = {}
             file_fields_name = []
             for field in model_fields:
                 if field.get_internal_type() is 'FileField':
@@ -55,7 +50,7 @@ class FineFileAdmin(admin.ModelAdmin):
                     folder_path = file_uploader.storage.path(file_uploader.file_path)
                     try:
                         shutil.rmtree(folder_path)
-                    except (OSError, PermissionError):
+                    except OSError:
                         pass
         # return post_info
 
@@ -66,3 +61,6 @@ class FineFileAdmin(admin.ModelAdmin):
     def change_view(self, request, object_id, form_url='', extra_context=None):
         self.fineuploader_setting(request)
         return super(type(self), self).change_view(request, object_id, form_url, extra_context)
+
+
+admin.site.register(FineFile, FineFileAdmin)

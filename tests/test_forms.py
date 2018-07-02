@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import sys
-import shutil
 import json
+import os
+import shutil
+import sys
 
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 from django.test.client import Client
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.urls import reverse
 
-from django_fine_uploader import views, settings, fineuploader
+from django_fine_uploader import views, settings
 from django_fine_uploader.forms import FineUploaderUploadForm
 
 

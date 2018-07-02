@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.http import JsonResponse, HttpResponseBadRequest
+import json
+
+from django.http import HttpResponseBadRequest
+from django.http.response import HttpResponse
 from django.views import generic
 
 import shutil
@@ -46,7 +49,7 @@ class FineUploaderView(generic.FormView):
             self.upload.save()
 
     def make_response(self, data, **kwargs):
-        return JsonResponse(data, **kwargs)
+        return HttpResponse(json.dumps(data), **kwargs)
 
     def get_form(self, form_class=None):
         if self.chunks_done:
@@ -111,7 +114,8 @@ class FineUploaderDeleteView(generic.View):
             full_path = file_storage.path(path)
             try:
                 shutil.rmtree(full_path)
-                return JsonResponse({'success': True, 'uuid': uuid})
-            except (OSError, PermissionError):
+                data = {'success': True, 'uuid': uuid}
+                return HttpResponse(json.dumps(data), content_type="application/json")
+            except OSError:
                 pass
         raise HttpResponseBadRequest()

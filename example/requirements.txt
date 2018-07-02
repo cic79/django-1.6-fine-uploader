@@ -1,4 +1,4 @@
-django
+South==1.0.2
 
 # Your app requirements.
 -r ../requirements_test.txt

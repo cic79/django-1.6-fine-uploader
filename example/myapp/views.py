@@ -1,13 +1,14 @@
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
+import json
+
+from django.http.response import HttpResponse
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 
 from django_fine_uploader.fineuploader import SimpleFineUploader
 from django_fine_uploader.forms import FineUploaderUploadForm
 from django_fine_uploader.views import FineUploaderView
-
-from .models import FineFile
 from .forms import FileFieldWithFineUploaderForm
+from .models import FineFile
 
 
 class ExampleView(generic.TemplateView):
@@ -60,11 +61,11 @@ class SimpleCustomUploaderView(generic.FormView):
         """
         upload = SimpleFineUploader(form.cleaned_data)
         upload.save()
-        return JsonResponse({'success': True})
+        return HttpResponse(json.dumps({'success': True}), content_type="application/json")
 
     def form_invalid(self, form):
         data = {'success': False, 'error': '%s' % repr(form.errors)}
-        return JsonResponse(data, status=400)
+        return HttpResponse(json.dumps(data), content_type="application/json", status=400)
 
 
 class CustomFineUploaderView(FineUploaderView):
