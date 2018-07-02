@@ -99,7 +99,7 @@ class FineUploaderDeleteView(generic.View):
         """
         uuid = request.POST.get('qquuid')
         if request.POST.get('_method') != 'DELETE' or not uuid:
-            raise HttpResponseBadRequest()
+            return HttpResponseBadRequest()
         kwargs.update({'uuid': uuid})
         return self.delete(request, *args, **kwargs)
 
@@ -118,4 +118,4 @@ class FineUploaderDeleteView(generic.View):
                 return HttpResponse(json.dumps(data), content_type="application/json")
             except OSError:
                 pass
-        raise HttpResponseBadRequest()
+        return HttpResponseBadRequest()
