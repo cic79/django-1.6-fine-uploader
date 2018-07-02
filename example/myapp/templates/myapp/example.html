@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader-gallery.min.css" rel="stylesheet">
+  <link href="{% static 'django_fine_uploader/fine-uploader-gallery.min.css' %}" rel="stylesheet">
   <script type="text/template" id="qq-template">
     <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
       <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
@@ -165,7 +166,7 @@
       </div>
     </section>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.13.0/fine-uploader.min.js"></script>
+  <script src="{% static 'django_fine_uploader/fine-uploader.min.js' %}"></script>
   <!-- Cookies.js, so we can get the CSRFToken cookie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js" charset="utf-8"></script>
   <script>
