@@ -20,6 +20,8 @@ from django.conf import settings
 
 from myapp import views
 
+admin.autodiscover()
+
 urlpatterns = [
     # The Django Admin
     url(r'^admin/', admin.site.urls),
