@@ -2,6 +2,7 @@ import json
 
 from django import forms
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 
 class FineUploaderWidget(forms.MultipleHiddenInput):
@@ -13,17 +14,17 @@ class FineUploaderWidget(forms.MultipleHiddenInput):
 
         self.allow_delete = kwargs.pop('allow_delete', True)
         self.allow_retry = kwargs.pop('allow_retry', True)
-        self.drop_label = kwargs.get('drop_label', 'Or just drag and drop file(s) here')
-        self.upload_label = kwargs.get('upload_label', 'Select file(s)')
-        self.delete_label = kwargs.pop('delete_label', 'Delete')
-        self.retry_label = kwargs.pop('retry_label', 'Retry')
-        self.pause_label = kwargs.pop('pause_label', 'Pause')
-        self.continue_label = kwargs.pop('continue_label', 'Continue')
-        self.close_label = kwargs.get('close_label', 'Close')
-        self.yes_label = kwargs.get('yes_label', 'Yes')
-        self.no_label = kwargs.get('no_label', 'No')
-        self.ok_label = kwargs.get('ok_label', 'OK')
-        self.cancel_label = kwargs.get('cancel_label', 'Cancel')
+        self.drop_label = kwargs.get('drop_label', _('Or just drag and drop file(s) here'))
+        self.upload_label = kwargs.get('upload_label', _('Select file(s)'))
+        self.delete_label = kwargs.pop('delete_label', _('Delete'))
+        self.retry_label = kwargs.pop('retry_label', _('Retry'))
+        self.pause_label = kwargs.pop('pause_label', _('Pause'))
+        self.continue_label = kwargs.pop('continue_label', _('Continue'))
+        self.close_label = kwargs.get('close_label', _('Close'))
+        self.yes_label = kwargs.get('yes_label', _('Yes'))
+        self.no_label = kwargs.get('no_label', _('No'))
+        self.ok_label = kwargs.get('ok_label', _('OK'))
+        self.cancel_label = kwargs.get('cancel_label', _('Cancel'))
 
         self.include_js = kwargs.pop('include_js', True)
         self.include_css = kwargs.pop('include_css', True)

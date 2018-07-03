@@ -1,0 +1,87 @@
+#: widgets.py:17
+msgid "Or just drag and drop file(s) here"
+msgstr "O trascina i file qui"
+
+#: widgets.py:18
+msgid "Select file(s)"
+msgstr "Seleziona i file"
+
+#: widgets.py:19 templates/django_fine_uploader/default.html:32
+#: templates/django_fine_uploader/gallery.html:45
+#: templates/django_fine_uploader/simple-thumbnails.html:34
+msgid "Delete"
+msgstr "Cancella"
+
+#: widgets.py:20 templates/django_fine_uploader/default.html:31
+#: templates/django_fine_uploader/gallery.html:33
+#: templates/django_fine_uploader/simple-thumbnails.html:33
+msgid "Retry"
+msgstr "Riprova"
+
+#: widgets.py:21 templates/django_fine_uploader/gallery.html:48
+msgid "Pause"
+msgstr "Pausa"
+
+#: widgets.py:22 templates/django_fine_uploader/gallery.html:51
+msgid "Continue"
+msgstr "Continua"
+
+#: widgets.py:23 templates/django_fine_uploader/default.html:40
+#: templates/django_fine_uploader/gallery.html:60
+#: templates/django_fine_uploader/simple-thumbnails.html:42
+msgid "Close"
+msgstr "Chiudi"
+
+#: widgets.py:24 templates/django_fine_uploader/default.html:48
+#: templates/django_fine_uploader/gallery.html:68
+#: templates/django_fine_uploader/simple-thumbnails.html:50
+msgid "Yes"
+msgstr "Si"
+
+#: widgets.py:25 templates/django_fine_uploader/default.html:47
+#: templates/django_fine_uploader/gallery.html:67
+#: templates/django_fine_uploader/simple-thumbnails.html:49
+msgid "No"
+msgstr "No"
+
+#: widgets.py:26
+msgid "OK"
+msgstr "Ok"
+
+#: widgets.py:27 templates/django_fine_uploader/default.html:30
+#: templates/django_fine_uploader/default.html:56
+#: templates/django_fine_uploader/gallery.html:76
+#: templates/django_fine_uploader/simple-thumbnails.html:32
+#: templates/django_fine_uploader/simple-thumbnails.html:58
+msgid "Cancel"
+msgstr "Annulla"
+
+#: templates/django_fine_uploader/default.html:6
+#: templates/django_fine_uploader/gallery.html:7
+#: templates/django_fine_uploader/simple-thumbnails.html:7
+msgid "Drop files here"
+msgstr "Trascina i file qui"
+
+#: templates/django_fine_uploader/default.html:14
+#: templates/django_fine_uploader/gallery.html:15
+#: templates/django_fine_uploader/simple-thumbnails.html:15
+msgid "Upload a file"
+msgstr "Carica un file"
+
+#: templates/django_fine_uploader/default.html:17
+#: templates/django_fine_uploader/gallery.html:18
+#: templates/django_fine_uploader/simple-thumbnails.html:18
+msgid "Processing dropped files"
+msgstr "Processando i file"
+
+#: templates/django_fine_uploader/default.html:27
+#: templates/django_fine_uploader/gallery.html:40
+#: templates/django_fine_uploader/simple-thumbnails.html:29
+msgid "Edit filename"
+msgstr "Modifica il nome"
+
+#: templates/django_fine_uploader/default.html:57
+#: templates/django_fine_uploader/gallery.html:77
+#: templates/django_fine_uploader/simple-thumbnails.html:59
+msgid "Ok"
+msgstr "Ok"
