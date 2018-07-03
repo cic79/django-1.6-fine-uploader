@@ -29,8 +29,13 @@ urlpatterns = [
     # django-fine-uploader default urls
     url(r'^fine-uploader/', include('django_fine_uploader.urls', namespace='django_fine_uploader')),
 
+    url(r'^$', view=views.HomeView.as_view(), name='home'),
+    url(r'^gallery/$', view=views.GalleryView.as_view(), name='example_gallery'),
+    url(r'^row/$', view=views.RowView.as_view(), name='example_row'),
+    url(r'^upload/$', view=views.CustomFineUploaderView.as_view(), name='uploader'),
+
     # our custom views on myapp app
-    url(r'^$', view=views.ExampleView.as_view(), name='home'),
+    url(r'^oldhome/$', view=views.ExampleView.as_view(), name='oldhome'),
     url(r'^widget/', view=views.ExampleWidgetView.as_view(), name='home-widget'),
     url(r'^upload-1/$', view=views.MyAppUploaderView.as_view(), name='uploader-1'),
     url(r'^upload-2/$', view=views.NotConcurrentUploaderView.as_view(), name='uploader-2'),

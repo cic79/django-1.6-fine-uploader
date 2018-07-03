@@ -11,8 +11,20 @@ from .forms import FileFieldWithFineUploaderForm
 from .models import FineFile
 
 
+class HomeView(generic.TemplateView):
+    template_name = 'myapp/home.html'
+
+
+class GalleryView(generic.TemplateView):
+    template_name = 'myapp/example_gallery.html'
+
+
+class RowView(generic.TemplateView):
+    template_name = 'myapp/example_row.html'
+
+
 class ExampleView(generic.TemplateView):
-    template_name = 'myapp/example.html'
+    template_name = 'myapp/old/example.html'
 
 
 class MyAppUploaderView(FineUploaderView):
@@ -90,5 +102,5 @@ class CustomFineUploaderView(FineUploaderView):
 class ExampleWidgetView(generic.FormView):
     """Example of using the form_class using the FineUploaderWidget.
     """
-    template_name = 'myapp/example_form.html'
+    template_name = 'myapp/old/example_form.html'
     form_class = FileFieldWithFineUploaderForm

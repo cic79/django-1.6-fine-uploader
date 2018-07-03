@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'django_fine_uploader/fine-uploader.min.js' %}"></script>
+    <link href="{% static 'django_fine_uploader/fine-uploader-gallery.min.css' %}" rel="stylesheet">
+    {% include 'django_fine_uploader/gallery.html' %}
+    <title>Fine Uploader Gallery View Demo</title>
+</head>
+<body>
+<!-- Fine Uploader DOM Element
+====================================================================== -->
+<div id="fine-uploader-gallery"></div>
+<div class="links-container">
+    <h3>Uploaded Files</h3>
+    <ol id="links"></ol>
+</div>
+<!-- Your code to create an instance of Fine Uploader and bind to the DOM/template
+====================================================================== -->
+<script type="application/javascript">
+    const galleryUploader = new qq.FineUploader({
+        debug: true,
+        element: document.getElementById('fine-uploader-gallery'),
+        template: 'qq-template',
+        request: {
+            endpoint: '{% url 'uploader' %}'
+        },
+        chunking: {
+            enabled: true,
+            concurrent: {
+                enabled: true
+            },
+            success: {
+                endpoint: '{% url 'uploader' %}?done'
+            }
+        },
+        callbacks: {
+            onComplete: function (id, filename, responseJSON) {
+                console.log(id);
+                console.log(filename);
+                console.log(responseJSON);
+
+                const links = document.querySelector('#links');
+                const li = links.appendChild(document.createElement('li'));
+                a = li.appendChild(document.createElement('a'));
+                a.textContent = filename;
+                a.href = responseJSON.file_url;
+                a.target = '_blank';
+            }
+        },
+        thumbnails: {
+            placeholders: {
+                waitingPath: '{% static 'django_fine_uploader/placeholders/waiting-generic.png' %}',
+                notAvailablePath: '{% static 'django_fine_uploader/placeholders/not_available-generic.png' %}'
+            }
+        }
+    });
+</script>
+</body>
+</html>
