@@ -91,7 +91,7 @@ class FineUploaderWidget(forms.MultipleHiddenInput):
         kwargs = {}
         if self.include_js:
             kwargs['js'] = (
-                'django_fine_uploader/js.cookie.min.js',
+                'django_fine_uploader/js-cookie/js.cookie.min.js',
                 'django_fine_uploader/fine-uploader.min.js',
             )
         if self.include_css:
