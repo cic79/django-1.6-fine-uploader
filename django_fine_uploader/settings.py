@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# encoding:UTF-8
+
 from django.conf import settings
 
 FILE_STORAGE = getattr(

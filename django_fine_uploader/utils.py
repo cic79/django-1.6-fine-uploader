@@ -1,5 +1,9 @@
-from django.core.exceptions import ImproperlyConfigured
+# !/usr/bin/env python
+# encoding:UTF-8
+
 from importlib import import_module
+
+from django.core.exceptions import ImproperlyConfigured
 
 
 def import_class(path):

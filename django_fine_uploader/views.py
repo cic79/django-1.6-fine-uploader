@@ -1,17 +1,18 @@
-# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+# encoding:UTF-8
+
 import json
+import shutil
+from os.path import join
 
 from django.http import HttpResponseBadRequest
 from django.http.response import HttpResponse
 from django.views import generic
 
-import shutil
-from os.path import join
-
-from .forms import FineUploaderUploadForm, FineUploaderUploadSuccessForm
-from .fineuploader import ChunkedFineUploader
 from . import settings
 from . import utils
+from .fineuploader import ChunkedFineUploader
+from .forms import FineUploaderUploadForm, FineUploaderUploadSuccessForm
 
 
 class FineUploaderView(generic.FormView):

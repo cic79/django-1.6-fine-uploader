@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# encoding:UTF-8
+
 import shutil
 
 from django.contrib import admin
@@ -5,11 +8,12 @@ from django.core.cache import cache
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db import models
 from django.db.models import FileField
+from django.forms import MultipleHiddenInput
 
-from django_fine_uploader import widgets
 from .models import FineFile
 
 
+# TODO: fix the admin
 # Class only used for denotation.
 
 
@@ -17,7 +21,7 @@ class FineFileAdmin(admin.ModelAdmin):
 
     formfield_overrides = {
         models.FileField: {
-            'widget': widgets.FineUploaderWidget(attrs={'admin': True, 'itemLimit': 1})
+            'widget': MultipleHiddenInput(attrs={'admin': True, 'itemLimit': 1})
         },
     }
 
@@ -28,7 +32,7 @@ class FineFileAdmin(admin.ModelAdmin):
 
     def fineuploader_setting(self, request):
         post_info = request.POST.dict()
-        if type(self.formfield_overrides.get(FileField).get('widget')) is widgets.FineUploaderWidget:
+        if type(self.formfield_overrides.get(FileField).get('widget')) is MultipleHiddenInput:
             model_fields = self.model._meta.fields
             file_fields_name = []
             for field in model_fields:

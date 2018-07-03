@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# encoding:UTF-8
+
 import json
 
 from django.http.response import HttpResponse
@@ -7,7 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django_fine_uploader.fineuploader import SimpleFineUploader
 from django_fine_uploader.forms import FineUploaderUploadForm
 from django_fine_uploader.views import FineUploaderView
-from .forms import FileFieldWithFineUploaderForm
 from .models import FineFile
 
 
@@ -97,10 +99,3 @@ class CustomFineUploaderView(FineUploaderView):
             # Let's save in database?
             FineFile.objects.create(fine_file=self.upload.real_path)
         return self.make_response(data)
-
-
-class ExampleWidgetView(generic.FormView):
-    """Example of using the form_class using the FineUploaderWidget.
-    """
-    template_name = 'myapp/old/example_form.html'
-    form_class = FileFieldWithFineUploaderForm

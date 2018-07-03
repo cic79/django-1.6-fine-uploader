@@ -1,10 +1,11 @@
-from django.conf import settings as django_settings
+# !/usr/bin/env python
+# encoding:UTF-8
+
+import shutil
+from io import StringIO
+from os.path import join
 
 from six.moves import range
-
-from os.path import join
-from io import StringIO
-import shutil
 
 from . import settings
 from . import utils

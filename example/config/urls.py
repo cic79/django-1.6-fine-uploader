@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# encoding:UTF-8
+
 """example URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -36,7 +39,6 @@ urlpatterns = [
 
     # our custom views on myapp app
     url(r'^oldhome/$', view=views.ExampleView.as_view(), name='oldhome'),
-    url(r'^widget/', view=views.ExampleWidgetView.as_view(), name='home-widget'),
     url(r'^upload-1/$', view=views.MyAppUploaderView.as_view(), name='uploader-1'),
     url(r'^upload-2/$', view=views.NotConcurrentUploaderView.as_view(), name='uploader-2'),
     url(r'^upload-3/$', view=views.SimpleCustomUploaderView.as_view(), name='uploader-3'),
