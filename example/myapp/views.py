@@ -17,6 +17,10 @@ class HomeView(generic.TemplateView):
     template_name = 'myapp/home.html'
 
 
+class CustomView(generic.TemplateView):
+    template_name = 'myapp/example_custom.html'
+
+
 class GalleryView(generic.TemplateView):
     template_name = 'myapp/example_gallery.html'
 

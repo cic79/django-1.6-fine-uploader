@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^fine-uploader/', include('django_fine_uploader.urls', namespace='django_fine_uploader')),
 
     url(r'^$', view=views.HomeView.as_view(), name='home'),
+    url(r'^custom/$', view=views.CustomView.as_view(), name='example_custom'),
     url(r'^gallery/$', view=views.GalleryView.as_view(), name='example_gallery'),
     url(r'^row/$', view=views.RowView.as_view(), name='example_row'),
     url(r'^upload/$', view=views.CustomFineUploaderView.as_view(), name='uploader'),

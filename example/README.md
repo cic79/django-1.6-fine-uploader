@@ -13,7 +13,7 @@ To run this example, follow these instructions:
 		
 3. Make and apply migrations
 
-		python manage.py makemigrations
+		python manage.py syncdb
 		
 		python manage.py migrate
 		
